@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="10dp">
+
+    <TextView
+        android:id="@+id/textview_post_content"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginTop="12dp"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"
+        android:text="[Post Content]"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/textview_post_rating"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorPrimary" />
+
+    <TextView
+        android:id="@+id/textview_post_rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginTop="8dp"
+        android:text="[32]"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textview_post_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:text="[Post time]"
+        android:textColor="@android:color/darker_gray"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textview_post_content"
+        app:layout_constraintTop_toBottomOf="@+id/textview_post_content" />
+
+    <ImageButton
+        android:id="@+id/btn_like"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginBottom="4dp"
+        android:background="@color/colorPrimary"
+        android:text="U"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toTopOf="@+id/textview_post_rating"
+        app:layout_constraintEnd_toEndOf="@+id/textview_post_rating"
+        app:layout_constraintStart_toStartOf="@+id/textview_post_rating" />
+
+    <ImageButton
+        android:id="@+id/btn_dislike"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="4dp"
+        android:background="@color/colorPrimary"
+        android:text="D"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="@+id/textview_post_rating"
+        app:layout_constraintStart_toStartOf="@+id/textview_post_rating"
+        app:layout_constraintTop_toBottomOf="@+id/textview_post_rating" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textview_post_content"
+        tools:layout_editor_absoluteX="87dp" />
+
+    <Button
+        android:id="@+id/btn_love"
+        android:layout_width="47dp"
+        android:layout_height="24dp"
+        android:layout_marginBottom="12dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/ic_like_selector"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/text_like_num"
+        app:layout_constraintTop_toBottomOf="@+id/textview_post_content"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btn_reply"
+        android:layout_width="47dp"
+        android:layout_height="24dp"
+        android:layout_marginBottom="12dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/ic_baseline_reply"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textview_post_content"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/text_reply_num"
+        android:layout_width="14dp"
+        android:layout_height="13dp"
+        android:layout_marginBottom="12dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btn_reply"
+        app:layout_constraintTop_toBottomOf="@+id/textview_post_content" />
+
+    <TextView
+        android:id="@+id/text_like_num"
+        android:layout_width="17dp"
+        android:layout_height="15dp"
+        android:layout_marginBottom="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textview_post_content"
+        app:layout_constraintVertical_bias="0.555"
+        tools:layout_editor_absoluteX="281dp"
+        tools:ignore="MissingConstraints" />
+
+</android.support.constraint.ConstraintLayout>
