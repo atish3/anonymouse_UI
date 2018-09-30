@@ -65,7 +65,7 @@ public class MymsgRecyclerViewAdapter extends RecyclerView.Adapter<MymsgRecycler
         public ViewHolder(View view) {
             super(view);
             mView = view;
-            mIdView = (TextView) view.findViewById(R.id.item_number);
+            mIdView = (TextView) view.findViewById(R.id.text_like_num);
             mContentView = (TextView) view.findViewById(R.id.content);
         }
 

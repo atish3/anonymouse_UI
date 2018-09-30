@@ -95,7 +95,7 @@
         android:layout_height="24dp"
         android:layout_marginBottom="12dp"
         android:layout_marginEnd="8dp"
-        android:background="@drawable/ic_like_selector"
+        android:background="@drawable/ic_baseline_like"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/text_like_num"
         app:layout_constraintTop_toBottomOf="@+id/textview_post_content"
