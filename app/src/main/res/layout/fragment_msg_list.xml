@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="match_parent"
+    class="org.anonymouse.uidesign.MsgFragment"
     android:layout_width="match_parent">
 
         <LinearLayout
@@ -47,8 +48,7 @@
     <android.support.v7.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/list"
-        android:name="org.anonymouse.uidesign.msgFragment"
+        android:id="@+id/recylcerview_posts"
         android:layout_width="317dp"
         android:layout_height="0dp"
         android:layout_marginBottom="8dp"
@@ -58,7 +58,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        tools:context=".msgFragment"
-        tools:listitem="@layout/fragment_msg" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 </android.support.constraint.ConstraintLayout>
