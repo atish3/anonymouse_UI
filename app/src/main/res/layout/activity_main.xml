@@ -9,31 +9,13 @@
     android:paddingRight="16dp"
     android:weightSum="45">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="2"
-        android:orientation="horizontal"
-        android:weightSum="20">
-        <TextView
-            android:id="@+id/textView_anonymouse"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="19"
-            android:text="ANONYMOUSE" />
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:background="@drawable/ic_baseline_setting"
-            android:layout_weight="1"/>
-    </LinearLayout>
     <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="80dp"
         android:layout_marginTop="80dp"
-        android:layout_weight="42" />
+        android:layout_weight="44" />
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/tabLayout"
