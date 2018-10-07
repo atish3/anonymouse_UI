@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent">
+    <item
+        android:id="@+id/item_posts"
+        android:icon="@drawable/ic_baseline_home"
+        android:title="POSTS" />
+    <item
+        android:id="@+id/item_add_post"
+        android:icon="@drawable/ic_baseline_msg"
+        android:title="ADD POST" />
+    <item
+        android:id="@+id/item_profile"
+        android:icon="@drawable/ic_baseline_profile"
+        android:title="PROFILE" />
+
+</menu>

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="match_parent"
-    class="org.anonymouse.uidesign.MsgFragment"
+    class="org.anonymouse.uidesign.PostFragment"
     android:layout_width="match_parent">
 
         <LinearLayout

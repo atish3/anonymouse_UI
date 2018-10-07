@@ -6,10 +6,9 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.fragment_msg_list.*
+import kotlinx.android.synthetic.main.fragment_post_list.*
 
-class MsgFragment : Fragment() {
+class PostFragment : Fragment() {
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -17,7 +16,7 @@ class MsgFragment : Fragment() {
             savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_msg_list, container, false)
+        return inflater.inflate(R.layout.fragment_post_list, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
