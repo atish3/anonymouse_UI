@@ -17,59 +17,43 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        createPostFragment()
 
         val viewPager =  findViewById<ViewPager>(R.id.fragment_container)
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation)
+        val adapter = ViewPagerAdapter(supportFragmentManager, bottomNavigationView)
+
+        if (viewPager != null) {
+            viewPager.adapter = adapter
+        }
+
             bottomNavigationView.setOnNavigationItemSelectedListener{
                 when(it.itemId) {
                     R.id.item_posts -> {
-                        createPostFragment()
-                        viewPager.setCurrentItem(0)
+                        if(!adapter.fromViewPager)
+                            viewPager.setCurrentItem(0)
+                        adapter.fromViewPager = false
                         return@setOnNavigationItemSelectedListener true
                     }
                     R.id.item_add_post -> {
-                        createAddPostFragment()
-                        viewPager.setCurrentItem(1)
+                        if(!adapter.fromViewPager)
+                            viewPager.setCurrentItem(1)
+                        adapter.fromViewPager = false
                         return@setOnNavigationItemSelectedListener true
                     }
                     R.id.item_profile -> {
-                        createProfileFragment()
-                        viewPager.setCurrentItem(2);
+                        if(!adapter.fromViewPager)
+                            viewPager.setCurrentItem(2)
+                        adapter.fromViewPager = false
                         return@setOnNavigationItemSelectedListener true
                     }
                     else -> {
                         return@setOnNavigationItemSelectedListener true
                     }
                 }
-
-             }
+            }
 
 
     }
 
-    fun createPostFragment() {
-        val transaction = manager.beginTransaction()
-        val fragment = PostFragment()
-        transaction.replace(R.id.fragment_container,fragment)
-        transaction.addToBackStack(null)
-        transaction.commit()
-    }
-
-    fun createAddPostFragment(){
-        val transaction = manager.beginTransaction()
-        val fragment = AddPostFragment()
-        transaction.replace(R.id.fragment_container,fragment)
-        transaction.addToBackStack(null)
-        transaction.commit()
-    }
-
-    fun createProfileFragment(){
-        val transaction = manager.beginTransaction()
-        val fragment = ProfileFragment()
-        transaction.replace(R.id.fragment_container,fragment)
-        transaction.addToBackStack(null)
-        transaction.commit()
-    }
 }
 
