@@ -14,13 +14,12 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     val manager = supportFragmentManager
-    val viewPager = viewpager
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         createPostFragment()
 
-        val viewPager =  findViewById<ViewPager>(R.id.viewpager)
+        val viewPager =  findViewById<ViewPager>(R.id.fragment_container)
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation)
             bottomNavigationView.setOnNavigationItemSelectedListener{
                 when(it.itemId) {
