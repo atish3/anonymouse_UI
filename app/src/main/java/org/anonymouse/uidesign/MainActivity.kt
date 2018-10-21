@@ -20,8 +20,8 @@ class MainActivity : AppCompatActivity() {
 
         val viewPager =  findViewById<ViewPager>(R.id.fragment_container)
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation)
-        val adapter = ViewPagerAdapter(supportFragmentManager, bottomNavigationView)
-
+        val adapter = ViewPagerAdapter(supportFragmentManager)
+        viewPager.setOnTouchListener { v, event ->  return@setOnTouchListener true}
         if (viewPager != null) {
             viewPager.adapter = adapter
         }
@@ -29,21 +29,15 @@ class MainActivity : AppCompatActivity() {
             bottomNavigationView.setOnNavigationItemSelectedListener{
                 when(it.itemId) {
                     R.id.item_posts -> {
-                        if(!adapter.fromViewPager)
-                            viewPager.setCurrentItem(0)
-                        adapter.fromViewPager = false
+                        viewPager.setCurrentItem(0)
                         return@setOnNavigationItemSelectedListener true
                     }
                     R.id.item_add_post -> {
-                        if(!adapter.fromViewPager)
-                            viewPager.setCurrentItem(1)
-                        adapter.fromViewPager = false
+                        viewPager.setCurrentItem(1)
                         return@setOnNavigationItemSelectedListener true
                     }
                     R.id.item_profile -> {
-                        if(!adapter.fromViewPager)
-                            viewPager.setCurrentItem(2)
-                        adapter.fromViewPager = false
+                        viewPager.setCurrentItem(2)
                         return@setOnNavigationItemSelectedListener true
                     }
                     else -> {
