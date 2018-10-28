@@ -23,13 +23,13 @@ class AddPostFragment : Fragment() {
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View {
-        val IMAGEREQUESTCODE = 8242008
+        val IMAGEREQUESTCODE = 2
 
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_add_post, container, false)
         view.btn_add_photo.setOnClickListener{
             val intent = Intent(Intent.ACTION_GET_CONTENT)
-            intent.type = "image/*"
+            intent.setType("image/*")
             startActivityForResult(intent, IMAGEREQUESTCODE)
         }
         return view
