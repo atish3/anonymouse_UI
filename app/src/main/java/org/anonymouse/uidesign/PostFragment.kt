@@ -23,11 +23,11 @@ class PostFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         var postList = mutableListOf<Post>(
-                Post("testing", "Jan 1, 2017", 32),
-                Post("hello", "4 days ago", 11),
-                Post("testing testing", "6 hours ago", 2)
+                Post("testing", "Jan 1, 2017", 32, listOf("Reply 1", "replyingggg")),
+                Post("hello", "4 days ago", 11, listOf("Reply 2", "hello hello hello")),
+                Post("testing testing", "6 hours ago", 2, listOf("Reply 3", "again", "another reply")
         )
-        recylcerview_posts.layoutManager = LinearLayoutManager(this.context)
+        recyclerview_posts.layoutManager = LinearLayoutManager(this.context)
         recylcerview_posts.adapter = PostsAdapter(this, postList)
     }
 }
