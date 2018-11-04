@@ -26,6 +26,7 @@ class PostsAdapter(val msgFragment: PostFragment, val postsList: List<Post>)
         holder.view.textview_post_content.text = postsList.get(position).text
         holder.view.textview_post_time.text = postsList.get(position).time
         holder.view.textview_post_rating.text = postsList.get(position).rating.toString()
+        holder.view.text_reply_num.text = postsList.get(position).replies.size.toString()
         holder.view.btn_vote_up.setOnClickListener {
             postsList.get(position).rating +=1
             holder.view.textview_post_rating.text = postsList.get(position).rating.toString()
