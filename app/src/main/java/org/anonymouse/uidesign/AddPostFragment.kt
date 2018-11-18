@@ -40,6 +40,9 @@ class AddPostFragment : Fragment() {
             intent.setType("image/*")
             startActivityForResult(intent, IMAGEREQUESTCODE)
         }
+        view.btn_delete_image.setOnClickListener {
+            deleteImage()
+        }
         return view
     }
 
@@ -67,5 +70,9 @@ class AddPostFragment : Fragment() {
     private fun showImage(imaePath: String) {
         val bm = BitmapFactory.decodeFile(imaePath)
         preview_image.setImageBitmap(bm)
+    }
+
+    private fun deleteImage(){
+        preview_image.setImageResource(android.R.color.transparent)
     }
 }

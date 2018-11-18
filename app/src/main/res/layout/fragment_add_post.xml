@@ -75,6 +75,11 @@
             android:id="@+id/preview_image"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
+        <Button
+            android:id="@+id/btn_delete_image"
+            android:text="Delete the image"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
 
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
