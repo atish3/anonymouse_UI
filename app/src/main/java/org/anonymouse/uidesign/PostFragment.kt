@@ -19,10 +19,10 @@ class PostFragment : Fragment() {
         // Inflate the layout for this fragment
         val view: View = inflater.inflate(R.layout.fragment_post_list, container, false)
         var postList = mutableListOf<Post>(
-                Post("testing", "Jan 1, 2017", 32, listOf("Reply 1", "replyingggg")),
-                Post("hello", "4 days ago", 11, listOf("Reply 2", "hello hello hello")),
-                Post("testing testing", "6 hours ago", 2, listOf("Reply 3", "again", "another reply")),
-                Post("testing 2", "4 hours ago", 4, listOf("ala","great","yolo"))
+                Post("testing", "Jan 1, 2017", 32, mutableListOf(Reply("John","Reply 1", "Jan 3, 2018"), Reply("John","Reply 1", "Jun 2, 2017"))),
+                Post("hello", "4 days ago", 11, mutableListOf(Reply("Saint","Reply 1", "Jan 3, 2018"), Reply("Steve","Reply 2", "Jun 3, 2017"))),
+                Post("testing testing", "6 hours ago", 2, mutableListOf(Reply("May","Reply 1", "Jan 3, 2018"), Reply("Linton","Reply 3", "Jun 5, 2017"))),
+                Post("testing 2", "4 hours ago", 4, mutableListOf(Reply("Mary","Reply 1", "Jan 3, 2018"), Reply("Harper","Reply 4", "Jun 2, 2017")))
         )
         view.recylcerview_posts.layoutManager = LinearLayoutManager(this.context)
         view.recylcerview_posts.adapter = PostsAdapter(this, postList)
