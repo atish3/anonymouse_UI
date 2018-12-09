@@ -10,7 +10,9 @@ import android.view.ViewGroup
 import kotlinx.android.synthetic.main.fragment_post_list.*
 import kotlinx.android.synthetic.main.fragment_post_list.view.*
 import android.database.sqlite.SQLiteDatabase
-
+import android.provider.ContactsContract
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class PostFragment : Fragment() {
@@ -22,15 +24,37 @@ class PostFragment : Fragment() {
     ): View {
         // Inflate the layout for this fragment
         val view: View = inflater.inflate(R.layout.fragment_post_list, container, false)
+
         val post_dbHelper = PostDatabaseHelper(this.context!!)
         val post_db = post_dbHelper.readableDatabase
-        val postProjection =arrayOf("content","post_time","rating")
-        var postList = mutableListOf<Post>(
-                Post("testing", "Jan 1, 2017", 32, mutableListOf(Reply("John","Reply 1", "Jan 3, 2018"), Reply("John","Reply 1", "Jun 2, 2017"))),
-                Post("hello", "4 days ago", 11, mutableListOf(Reply("Saint","Reply 1", "Jan 3, 2018"), Reply("Steve","Reply 2", "Jun 3, 2017"))),
-                Post("testing testing", "6 hours ago", 2, mutableListOf(Reply("May","Reply 1", "Jan 3, 2018"), Reply("Linton","Reply 3", "Jun 5, 2017"))),
-                Post("testing 2", "4 hours ago", 4, mutableListOf(Reply("Mary","Reply 1", "Jan 3, 2018"), Reply("Harper","Reply 4", "Jun 2, 2017")))
-        )
+        val post_cursor = post_db.rawQuery("select * from "+ post_dbTable,null)
+
+        val reply_dbHelper = ReplyDatabaseHelper(this.context!!)
+        val reply_db = reply_dbHelper.readableDatabase
+        val postList = mutableListOf<Post>()
+        with(post_cursor) {
+            while (moveToNext()){
+                val post_Id = getInt(0)
+                val content = getString(1)
+                val post_time = getLong(2)
+                val rating = getInt(3)
+                val reply_list = mutableListOf<Reply>()
+                val reply_cur = reply_db.rawQuery("select * from "+ reply_dbTable+" where post_id = "+post_Id.toString() ,null)
+                with(reply_cur){
+                    while (moveToNext()){
+                        val reply_content = getString(2)
+                        val reply_time = getLong(3)
+                        val author = getString(4)
+                        val date = Date(reply_time)
+                        val r_t = SimpleDateFormat("yyyy.MM.dd HH:mm").format(date)
+                        reply_list.add(Reply(author,reply_content,r_t))
+                    }
+                }
+                val post_date = Date(post_time)
+                val p_t =SimpleDateFormat("yyyy.MM.dd HH:mm").format(post_date)
+                postList.add(Post(content,p_t,rating,reply_list))
+            }
+        }
         view.recylcerview_posts.layoutManager = LinearLayoutManager(this.context)
         view.recylcerview_posts.adapter = PostsAdapter(this, postList)
         return view

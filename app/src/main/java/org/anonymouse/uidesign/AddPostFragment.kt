@@ -2,6 +2,7 @@ package org.anonymouse.uidesign
 
 import android.app.Activity
 import android.app.Activity.*
+import android.content.ContentValues
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.BitmapFactory
@@ -44,6 +45,15 @@ class AddPostFragment : Fragment() {
         }
         view.btn_delete_image.setOnClickListener {
             deleteImage()
+        }
+        view.btn_send.setOnClickListener {
+            var values = ContentValues()
+            values.put("content",view.text_post.text.toString())
+            values.put("post_time",System.currentTimeMillis())
+            values.put("rating",0)
+            var dbHelper = PostDatabaseHelper(this!!.context!!)
+            val db = dbHelper.writableDatabase
+            db.insert(post_dbTable,"",values)
         }
         return view
     }
