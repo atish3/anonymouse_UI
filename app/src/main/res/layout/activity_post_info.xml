@@ -47,12 +47,12 @@
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/replies_recyclerview_post_info"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="1dp"
         app:layout_constraintBottom_toTopOf="@+id/new_reply_post_info"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -65,8 +65,10 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginBottom="1dp"
         android:text="Replies"
         android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/replies_recyclerview_post_info"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/timestamp_post_info" />
@@ -79,8 +81,8 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:ems="10"
+        android:hint="Enter Text"
         android:inputType="textPersonName"
-        android:text="Enter Text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/reply_button_post_info"
         app:layout_constraintStart_toStartOf="parent" />

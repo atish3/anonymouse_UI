@@ -13,7 +13,7 @@ class PostInfoActivity : AppCompatActivity() {
 
         //Retrieve post from PostFragment/PostsAdapter
         val post = intent.getSerializableExtra("Post") as Post
-
+        val username: String = intent.getStringExtra("Username") as String
         //Fill in views
         post_content_post_info.setText(post.text)
         timestamp_post_info.setText(post.time)
@@ -21,6 +21,10 @@ class PostInfoActivity : AppCompatActivity() {
 
         replies_recyclerview_post_info.layoutManager = LinearLayoutManager(this)
         replies_recyclerview_post_info.adapter = RepliesAdapter(this, post.replies)
+        reply_button_post_info.setOnClickListener {
+            post.replies.add(Reply(username, new_reply_post_info.text.toString(),"1-1-1970"))
+            (replies_recyclerview_post_info.adapter as RepliesAdapter).notifyItemInserted(post.replies.size-1)
+        }
     }
 
 }

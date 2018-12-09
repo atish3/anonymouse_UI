@@ -8,7 +8,8 @@ import android.view.ViewGroup
 import kotlinx.android.synthetic.main.fragment_post.view.*
 import java.io.Serializable
 
-data class Post(var text: String, val time: String, var rating: Int, var replies: List<String>): Serializable
+data class Reply(var author: String, val content: String, val time: String): Serializable
+data class Post(var text: String, val time: String, var rating: Int, var replies: MutableList<Reply>): Serializable
 
 class PostsAdapter(val msgFragment: PostFragment, val postsList: List<Post>)
     : RecyclerView.Adapter<CustomViewHolder>() {
@@ -40,6 +41,7 @@ class PostsAdapter(val msgFragment: PostFragment, val postsList: List<Post>)
         holder.itemView.setOnClickListener {
             val intent = Intent(msgFragment.context, PostInfoActivity::class.java)
             intent.putExtra("Post", postsList.get(position))
+            intent.putExtra("Username", "Unknown")
             msgFragment.startActivity(intent)
         }
     }

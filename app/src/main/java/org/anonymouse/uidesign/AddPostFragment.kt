@@ -12,7 +12,9 @@ import android.provider.MediaStore
 import android.support.v4.app.ActivityCompat
 import android.support.v4.app.Fragment
 import android.support.v4.content.ContextCompat
+import android.support.v4.content.ContextCompat.checkSelfPermission
 import android.support.v7.widget.LinearLayoutManager
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -53,26 +55,24 @@ class AddPostFragment : Fragment() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        //获取图片路径
         if (requestCode == IMAGEREQUESTCODE && resultCode == Activity.RESULT_OK && data != null) {
-            val selectedImage = data!!.getData()
-            val filePathColumns = arrayOf<String>(MediaStore.Images.Media.DATA)
-            val c = activity!!.getContentResolver()!!.query(selectedImage, filePathColumns, null, null, null)
-            c!!.moveToFirst()
-            val columnIndex = c!!.getColumnIndex(filePathColumns[0])
-            val imagePath = c!!.getString(columnIndex!!)
-            showImage(imagePath!!)
-            c.close()
+//            val selectedImage = data.getData()
+//            val filePathColumns = arrayOf<String>(MediaStore.Images.Media.DATA)
+//            val c = activity?.getContentResolver()?.query(selectedImage, filePathColumns, null, null, null)
+//            c?.moveToFirst()
+//            val columnIndex = c?.getColumnIndex(MediaStore.Images.Media.DATA)
+//            val imagePath = c?.getString(0)
+//            showImage(imagePath!!)
+//            c.close()
+            val bitmap = MediaStore.Images.Media.getBitmap(activity?.contentResolver, data!!.data)
+            preview_image.setImageBitmap(bitmap)
+            btn_delete_image.visibility = View.VISIBLE
         }
     }
 
-    //加载图片
-    private fun showImage(imaePath: String) {
-        val bm = BitmapFactory.decodeFile(imaePath)
-        preview_image.setImageBitmap(bm)
-    }
 
     private fun deleteImage(){
         preview_image.setImageResource(android.R.color.transparent)
+        btn_delete_image.visibility = View.INVISIBLE
     }
 }

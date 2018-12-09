@@ -10,7 +10,7 @@ import kotlinx.android.synthetic.main.reply_content.view.*
 import java.io.Serializable
 
 
-class RepliesAdapter(val postInfoActivity: PostInfoActivity, val repliesList: List<String>)
+class RepliesAdapter(val postInfoActivity: PostInfoActivity, val repliesList: List<Reply>)
     : RecyclerView.Adapter<CustomViewHolder>() {
     override fun getItemCount(): Int {
         return repliesList.size
@@ -23,7 +23,7 @@ class RepliesAdapter(val postInfoActivity: PostInfoActivity, val repliesList: Li
     }
 
     override fun onBindViewHolder(holder: CustomViewHolder, position: Int) {
-        holder.view.reply.text = repliesList[position]
+        holder.view.reply.text = repliesList[position].author+": "+repliesList[position].content
     }
 
 
