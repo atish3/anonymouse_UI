@@ -1,5 +1,6 @@
 package org.anonymouse.uidesign
 
+import android.database.sqlite.SQLiteOpenHelper
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
@@ -8,6 +9,9 @@ import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.fragment_post_list.*
 import kotlinx.android.synthetic.main.fragment_post_list.view.*
+import android.database.sqlite.SQLiteDatabase
+
+
 
 class PostFragment : Fragment() {
 
@@ -18,6 +22,9 @@ class PostFragment : Fragment() {
     ): View {
         // Inflate the layout for this fragment
         val view: View = inflater.inflate(R.layout.fragment_post_list, container, false)
+        val post_dbHelper = PostDatabaseHelper(this.context!!)
+        val post_db = post_dbHelper.readableDatabase
+        val postProjection =arrayOf("content","post_time","rating")
         var postList = mutableListOf<Post>(
                 Post("testing", "Jan 1, 2017", 32, mutableListOf(Reply("John","Reply 1", "Jan 3, 2018"), Reply("John","Reply 1", "Jun 2, 2017"))),
                 Post("hello", "4 days ago", 11, mutableListOf(Reply("Saint","Reply 1", "Jan 3, 2018"), Reply("Steve","Reply 2", "Jun 3, 2017"))),
